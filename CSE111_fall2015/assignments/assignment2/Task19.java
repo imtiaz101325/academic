@@ -20,6 +20,8 @@ public class Task19 {
 
 		out.println("Enter 10 numbers: ");//prompt
 
+		int[] stack = new int[10];
+
 		for(int i=0; i<stack.length; i++) { //input loop
 
 			out.print((i+1)+": ");
@@ -43,7 +45,7 @@ public class Task19 {
 
 		//starts with (assuming the logic can be applied solely on what the sorted array starts with)
 
-		int logic;
+		int logic = 0;
 
 		if(stack[0] > 9){
 
@@ -53,9 +55,10 @@ public class Task19 {
 
 			logic = 2;
 
-		}else {
-
+		}else if(stack[0]%2!=0) {
+			
 			logic = 3;
+		
 		}
 
 		//output logic
@@ -79,6 +82,8 @@ public class Task19 {
 					out.print(stack[i]+" ");
 			}
 
+			break;
+
 		case 2:
 
 			for(int i=0; i<stack.length; i++) {
@@ -92,6 +97,9 @@ public class Task19 {
 				if(stack[i]%2!=0)
 					out.print(stack[i]+" ");
 			}
+
+
+			break;
 
 		case 3:
 
@@ -107,7 +115,7 @@ public class Task19 {
 					out.print(stack[i]+" ");
 			}
 
-
+			break;
 
 		}
 
