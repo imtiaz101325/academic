@@ -1,4 +1,4 @@
-//07-09-15 Monday 3:56 am
+//07-09-15 Monday
 //Sk. Imtiaz Ahmed
 //excalliburbd@gmail.com
 //Assignment for for Md. Shamsul Kaonain CSE111 BRAC University

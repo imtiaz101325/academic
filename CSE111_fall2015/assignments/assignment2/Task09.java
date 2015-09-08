@@ -1,4 +1,4 @@
-//07-09-15 Monday 4:49 am
+//07-09-15 Monday
 //Sk. Imtiaz Ahmed
 //excalliburbd@gmail.com
 //Assignment for for Md. Shamsul Kaonain CSE111 BRAC University
@@ -8,7 +8,7 @@
 import static java.lang.System.*;
 import java.util.*;
 
-public class Task02 {
+public class Task09 {
 
 	public static void main(String[] args) {
 
