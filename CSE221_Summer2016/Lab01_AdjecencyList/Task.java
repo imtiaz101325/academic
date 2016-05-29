@@ -35,14 +35,16 @@ public class Task{
       int source = Integer.parseInt(input[0]);
       int destination = Integer.parseInt(input[1]);
 
-      //edge case: manually set first node after head
-      if(arrayList[source-1].next == null){
-        arrayList[source-1].next = new Node(destination, null);
-      }else{
-        Node n = arrayList[source-1];
-        for(;n.next != null; n = n.next);//find last node
-        n.next = new Node(destination, null);
-      }
+      // //edge case: manually set first node after head
+      // if(arrayList[source-1].next == null){
+      //   arrayList[source-1].next = new Node(destination, null);
+      // }else{
+      //   Node n = arrayList[source-1];
+      //   for(;n.next != null; n = n.next);//find last node
+      //   n.next = new Node(destination, null);
+      // }
+
+      arrayList[source-1].add(destination);
     }
 
     //output loop
