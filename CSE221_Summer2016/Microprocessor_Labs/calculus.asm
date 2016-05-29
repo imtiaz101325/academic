@@ -4,21 +4,30 @@ include 'emu8086.inc'
 .stack 100h
 .data
 
+   se db "x dx$"
+
 .code
   mov ax,@data
   mov ds,ax
 main proc
 
-    mov ah,1
-    int 21h
     mov ah,2
-    mov dl,13
+    mov dl,09h
     int 21h
-    mov dl,10
+    mov dl,0F4h
     int 21h
-    mov dl,34h
+    mov dl,0dh
     int 21h
-
+    mov dl,0ah
+    int 21h
+    mov dl,09h
+    int 21h
+    mov dl,0F5h
+    int 21h
+    lea dx,se
+    mov ah,9
+    int 21h
+    
 endp main
 DEFINE_SCAN_NUM
 DEFINE_PRINT_STRING
