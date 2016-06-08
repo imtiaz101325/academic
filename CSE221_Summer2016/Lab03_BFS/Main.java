@@ -34,7 +34,7 @@ public class Main{
         //     System.out.println();
         // }
 
-        bfs(graph, 3);
+        bfs(graph, 1);
     }
 
     public static void bfs(int[][] graph, int source){
@@ -72,27 +72,50 @@ public class Main{
           }
           color[current] = 2;
         }
+        
+        //printing paths
+        System.out.println("Source: "+source);
+        for(int i=1; i<graph.length; i++){
+          
+          System.out.println("Vertex: "+i);
+          System.out.println("\t"+"Distance: "+distance[i]);
+          Stack<Integer> st = new Stack<Integer>();
+          st.push(i);
+          int j=parent[i];
+          while(j != -1){
+            st.push(j);
+            j = parent[j];
+          }
+          System.out.print("\tPath: ");
+          int k = st.pop();
+          while(!st.empty()){
+            
+            System.out.print(k+"->");
+            k = st.pop();
+          }
+          System.out.println(i);
+        }
 
-        for(int i=0; i<graph.length; i++){
-            for(int j=0; j<graph[i].length; j++){
-                System.out.print(graph[i][j]+" ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-        System.out.println();
+        // for(int i=0; i<graph.length; i++){
+        //     for(int j=0; j<graph[i].length; j++){
+        //         System.out.print(graph[i][j]+" ");
+        //     }
+        //     System.out.println();
+        // }
+        // System.out.println();
+        // System.out.println();
 
-        for(int i=0; i<color.length; i++){
-          System.out.print(color[i]+" ");
-        }
-        System.out.println();
-        for(int i=0; i<distance.length; i++){
-          System.out.print(distance[i]+" ");
-        }
-        System.out.println();
-        for(int i=0; i<parent.length; i++){
-          System.out.print(parent[i]+" ");
-        }
-        System.out.println();
+        // for(int i=0; i<color.length; i++){
+        //   System.out.print(color[i]+" ");
+        // }
+        // System.out.println();
+        // for(int i=0; i<distance.length; i++){
+        //   System.out.print(distance[i]+" ");
+        // }
+        // System.out.println();
+        // for(int i=0; i<parent.length; i++){
+        //   System.out.print(parent[i]+" ");
+        // }
+        // System.out.println();
     }
 }
