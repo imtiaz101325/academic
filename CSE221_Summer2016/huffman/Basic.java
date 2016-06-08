@@ -38,7 +38,7 @@ public class Basic{
 
       Node first = pQueue.remove();
       Node second = pQueue.remove();
-      pQueue.add(new Node(first.charLength+second.charLength,(char)0,first,second));
+      pQueue.add(new Node(first.charLength+second.charLength,null,first,second));
     }
 
     //final huffman Tree
@@ -48,9 +48,16 @@ public class Basic{
     String[] encode = new String[256];
 
 
+  }
 
+  public static String charCode(Node tree){
 
-
-
+    if(tree.character != null){
+      return "";
+    }else if(tree.left != null){
+      return "0"+charCode(tree.left);
+    }else{
+      return "1"+charCode(tree.right);
+    }
   }
 }

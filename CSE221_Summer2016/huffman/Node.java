@@ -1,9 +1,9 @@
 public class Node{
 
   public int charLength;
-  public char character;
+  public Object character;
   public Node left, right;
-  public Node(int len, char c, Node l, Node r){
+  public Node(int len, Object c, Node l, Node r){
 
     charLength = len;
     character = c;
