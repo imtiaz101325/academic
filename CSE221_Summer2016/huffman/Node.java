@@ -11,4 +11,10 @@ public class Node{
     right = r;
 
   }
+
+  //for debugging
+  public String toString(){
+
+    return "len: "+charLength+" char: "+character;
+  }
 }
