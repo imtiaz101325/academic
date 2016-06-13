@@ -1,0 +1,40 @@
+DATA SEGMENT
+  AA DB 12
+  BB DB 23
+  CC DB ?
+DATA ENDS
+
+CODE SEGMENT
+
+  ;MOV BX, 0
+  MOV BL, BB
+
+  START:
+    MOV AL, AA
+    AND AL, 0001B
+  MOV BX, 0
+    CMP AL, 0001B
+    ;MOV AX,0
+    ;MOV AX,AA
+    ;DIV 2
+    JE TRUE
+  RETURN:
+    INC AA
+    MOV DL,AA
+    CMP BL,DL
+    JGE START
+    JL END
+
+  TRUE:
+    MOV CL,CC
+    MOV DX, 0
+    MOV DL, AA
+    ADD CL, DL
+    MOV CC, CL
+    JMP RETURN
+
+  END:
+
+    MOV AL,CC
+
+CODE ENDS

@@ -1,0 +1,32 @@
+DATA SEGMENT
+  AA DW 12
+  BB DW 23
+  CC DW ?
+DATA ENDS
+
+CODE SEGMENT
+
+  MOV CX,0
+  
+  START:
+
+    MOV AX,AA
+    MOV BX,2
+    DIV BX
+    CMP DL,0B
+    JG ODD
+  RETURN:
+    INC AA
+    MOV AX,AA
+    MOV BX,BB
+    CMP AX,BX
+    JLE START
+    JMP END
+  ODD:
+    MOV BX,AA
+    ADD CX,BX
+    JMP RETURN
+
+  END:
+
+CODE ENDS
