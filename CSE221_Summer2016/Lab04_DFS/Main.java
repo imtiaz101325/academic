@@ -89,7 +89,7 @@ public class Main{
         }
         System.out.println();
         
-        System.out.println("Distance");
+        System.out.println("Start");
         for(int i=0; i<graph.length; i++){
             System.out.print(distance[i]+" ");
         }
@@ -106,5 +106,31 @@ public class Main{
             System.out.print(finish[i]+" ");
         }
         System.out.println();
+        
+        System.out.println("Path from 1 to 5:");
+        
+        Stack<Integer> st = new Stack<Integer>();
+        int curr = 5;
+        while(curr != 1){
+            st.push(curr);
+            curr = parent[curr];
+        }
+        
+        System.out.print("1 ");
+        while(!st.empty()){
+            System.out.print(st.pop()+" ");
+        }
+        System.out.println();
+        
+        /*int index = 1;
+        while(index != 5){
+            for(int i=1; i<parent.length; i++){
+                if(parent[i] == i){
+                    index = parent[i];
+                    System.out.print(index+" ");
+                }
+            }
+        }*/
+        
     }
 }
