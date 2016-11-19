@@ -1,19 +1,17 @@
 //Node class
 import java.util.*;
 
-public class Node implements Comparator<Node>{
+public class Node{
 
-  private Object vertex;
+  private Integer vertex;
   private Integer weight;
-  private Integer cost;
-  private Node prev;
+  private int prev;
   private Node next;
 
-  public Node(Object v, Integer w, Integer c, Node p, Node n){
+  public Node(Integer v, Integer w, int p, Node n){
 
     vertex = v;
     weight = w;
-    cost = c;
     prev = p;
     next = n;
   }
@@ -22,39 +20,11 @@ public class Node implements Comparator<Node>{
     Node list = this;
     //edge case: manually set first node after head
     if(list.next == null){
-      list.next = new Node(e, w, Integer.MAX_VALUE, null, null);
+      list.next = new Node(e, w, null, null);
     }else{
       Node n = list;
       for(;n.next != null; n = n.next);//find last node
-      n.next = new Node(e, w, Integer.MAX_VALUE, null, null);
+      n.next = new Node(e, w, -1, null);
     }
-  }
-
-  public void setPrev(Node p){
-    prev = p;
-  }
-
-  public Node getPrev(){
-    return prev;
-  }
-
-  public void setCost(Integer c){
-    cost = c;
-  }
-
-  public Integer getCost(){
-    return cost;
-  }
-
-  public Integer getWeight(){
-    return weight;
-  }
-
-   public Node compareTo(Node n) {
-      return (this.cost).compareTo(n.cost);
-   }
-
-  public String toString(){
-    return vertex;
   }
 }

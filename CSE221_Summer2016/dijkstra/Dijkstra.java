@@ -3,9 +3,29 @@ import java.io.*;
 
 public class Dijkstra {
 
-  public void dijkstra(Object[] list, Integer source){
-    list[source].setCost(0);
-
+  public static void dijkstra(Object[] list, Integer source){
+    
+    list[source].weight = 0;
+    
+    Comparator<Node> cp = new NodeComparator();
+    PriorityQueue<Node> pq = new PriorityQueue<Node>(list.length-1, cp);
+    
+    for(int i=1; i<list.length; i++){
+      pq.add(list[i]);
+    }
+    
+    while(pq.size() != 0){
+      Node current = pq.remove();
+      
+      Node n = list[current.vertex].next;
+      while(n != null){
+        int dist = n.weight + current.weight;
+        if(dist < list[n.vertex].weight){
+          list[n.vertex].weight = dist;
+          list[n.vertex].prev = current.vertex;
+        }
+      }
+    }
 
   }
 
@@ -17,12 +37,12 @@ public class Dijkstra {
     BufferedReader in = new BufferedReader(new FileReader(fileName));
 
     //Array of custom node objects
-    Node[] arrayList = new Node[Integer.parseInt(in.readLine())];//size set to
+    Node[] arrayList = new Node[Integer.parseInt(in.readLine())+1];//size set to
                                                                 //number of vertex
     //initializing array with the vertex names
-    for(int i=0; i<arrayList.length; i++){
+    for(int i=1; i<arrayList.length; i++){
 
-      arrayList[i] = new Node(i+1, -1, null);
+      arrayList[i] = new Node(i, 1000, null, null );
     }
 
     String line;
